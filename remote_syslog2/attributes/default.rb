@@ -7,7 +7,7 @@ default['remote_syslog2']['config'] = {
   destination: {
     host: 'logs2.papertrailapp.com',
     port: 58244,
-    protocol: tls
+    protocol: 'tls'
   }
 }
 
