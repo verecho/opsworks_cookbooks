@@ -9,6 +9,7 @@ node[:deploy].each do |application, deploy|
   # Overwrite the unicorn restart command declared elsewhere
   # Apologies for the `sleep`, but monit errors with "Other action already in progress" on some boots.
   execute "restart Rails app #{application}" do
+    Chef::Log.debug("Executing command: 'sleep 300 && #{node[:sidekiq][application][:restart_command]}'")
     command "sleep 300 && #{node[:sidekiq][application][:restart_command]}"
     action :nothing
   end
