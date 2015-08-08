@@ -31,4 +31,4 @@ include_recipe "imagemagick"
 
 # package dev_pkg
 
-package "libmagickwand-dev"
+package "ImageMagick-devel"
