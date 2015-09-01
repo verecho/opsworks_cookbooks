@@ -5,8 +5,8 @@ default['remote_syslog2']['config'] = {
   exclude_patterns: [],
   hostname: node['hostname'],
   destination: {
-    host: 'logs2.papertrailapp.com',
-    port: 58244,
+    host: node['papertrail']['host'],
+    port: node['papertrail']['port'],
     protocol: 'tls'
   }
 }
