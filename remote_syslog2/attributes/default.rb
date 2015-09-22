@@ -1,12 +1,12 @@
 # Overwrite this in your cookbook
 default['remote_syslog2']['config'] = {
-  files: ["/srv/www/verecho/shared/log/production.log", "/srv/www/verecho/shared/log/unicorn.stdout.log", "/srv/www/verecho/shared/log/unicorn.stderr.log", "/var/log/nginx/app.verecho.com.access.log", "/var/log/nginx/app.verecho.com.error.log","/var/log/messages"],
+  files: ["/srv/www/verecho/shared/log/production.log","/srv/www/verecho/shared/log/staging.log", "/srv/www/verecho/shared/log/unicorn.stdout.log", "/srv/www/verecho/shared/log/unicorn.stderr.log", "/var/log/nginx/app.verecho.com.access.log", "/var/log/nginx/app.verecho.com.error.log","/var/log/messages"],
   exclude_files: [],
   exclude_patterns: [],
   hostname: node['hostname'],
   destination: {
-    host: 'logs2.papertrailapp.com',
-    port: 58244,
+    host: node['papertrail']['host'],
+    port: node['papertrail']['port'],
     protocol: 'tls'
   }
 }
