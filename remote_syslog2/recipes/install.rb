@@ -2,7 +2,7 @@ install = node['remote_syslog2']['install']
 bin_file = "#{install['bin_path']}/#{install['bin']}"
 
 remote_file install['download_path'] do
-  Chef::Log.debug("trying to download file from #{install['download_file'}")
+  Chef::Log.debug("trying to download file from #{install['download_file']")
   source install['download_file']
   mode '0644'
   not_if { ::File.exists?(bin_file) }
