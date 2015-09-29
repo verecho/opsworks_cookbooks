@@ -5,7 +5,7 @@ Chef::Log.info("trying to download file from #{install['download_file']}")
 
 remote_file install['download_path'] do
   source install['download_file']
-  mode '0644'
+  mode '0755'
   not_if { ::File.exists?(bin_file) }
 end
 
