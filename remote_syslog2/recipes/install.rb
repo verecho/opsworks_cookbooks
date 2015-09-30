@@ -3,7 +3,7 @@ bin_file = "#{install['bin_path']}/#{install['bin']}"
 
 remote_file install['download_path'] do
   source install['download_file']
-  mode '0666'
+  mode '0644'
   not_if { ::File.exists?(bin_file) }
 end
 
