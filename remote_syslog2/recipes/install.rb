@@ -2,6 +2,7 @@ install = node['remote_syslog2']['install']
 bin_file = "#{install['bin_path']}/#{install['bin']}"
 
 remote_file install['download_path'] do
+  Chef::Log.info("Installing remote_syslog2...")
   source install['download_file']
   mode '0644'
 #  not_if { ::File.exists?(bin_file) }
@@ -15,6 +16,8 @@ bash 'extract remote_syslog2' do
     mv #{install['extracted_path']}/#{install['extracted_bin']} #{bin_file}
     rm -rf #{install['download_path']} #{install['extracted_path']}
   EOH
+
+Chef::Log.info("Extract remote_syslog2...")
 #  not_if { ::File.exists?(bin_file) }
 end
 
